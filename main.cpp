@@ -2,8 +2,12 @@
 
 int ** create(size_t rows, size_t cols);
 
-void remove (int **matrix, size_t rows, size_t cols);
-
+void remove (int **matrix, size_t rows){
+	for (size_t i = 0; i < rows; ++i){
+		delete[] matrix[i];
+	} 
+	delete[] matrix;
+}
 void input(int ** matrix, size_t rows, size_t cols){
 	for (size_t i = 0; i < rows && std::cin; ++i){
 		for (size_t j = 0; i < cols && std::cin;++j){
@@ -14,7 +18,7 @@ void input(int ** matrix, size_t rows, size_t cols){
 
 void output(const int * const * matrix, size_t rows, size_t cols){
 	std << rows << " " << cols;
-
+}
 int main()
 {
 	size_t rows = 0, cols = 0;
@@ -33,7 +37,7 @@ int main()
 	}
 	output(matrix, rows, cols);
 
-	remove(matrix, rows, cols);
+	remove(matrix, rows);
 
 	std::cout << "\n";	
 }	
