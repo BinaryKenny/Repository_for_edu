@@ -1,7 +1,8 @@
 #include <iostream>
 
-int ** create(size_t rows, size_t cols);
-
+int ** create(size_t rows, size_t cols){
+	int ** result = nullptr;
+}
 void remove (int **matrix, size_t rows){
 	for (size_t i = 0; i < rows; ++i){
 		delete[] matrix[i];
