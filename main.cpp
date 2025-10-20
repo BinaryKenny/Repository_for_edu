@@ -1,7 +1,17 @@
 #include <iostream>
 
 int ** create(size_t rows, size_t cols){
-	int ** result = nullptr;
+	int ** result = new int* [rows];
+	size_t i = 0;
+	try {
+		for (; i < rows; ++i){
+			result[i] = new int[cols];
+		}
+	}catch (...){
+		remove(result, i);
+		throw;
+	}
+	return result; 
 }
 void remove (int **matrix, size_t rows){
 	for (size_t i = 0; i < rows; ++i){
@@ -25,8 +35,8 @@ int main()
 	size_t rows = 0, cols = 0;
 	std::cin >> rows >> cols;
 	if (!std::cin){
-		remove(matrix, rows, cols);
-		return 1;}
+		return 1;
+	}
 	std::cout << rows * cols << "\n";
 
 
