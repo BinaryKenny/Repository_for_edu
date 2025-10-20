@@ -12,7 +12,8 @@ void input(int ** matrix, size_t rows, size_t cols){
 	}
 } 
 
-void output(const int * const * matrix, size_t rows, size_t cols);
+void output(const int * const * matrix, size_t rows, size_t cols){
+	std << rows << " " << cols;
 
 int main()
 {
