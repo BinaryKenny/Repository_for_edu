@@ -33,6 +33,9 @@ void output(const int * const * matrix, size_t rows, size_t cols){
 	for (size_t i = 0; i < rows; ++i){
 		for (size_t j = 0; j < cols; ++j){
 			std::cout << matrix[i][j] << " ";
+			if (j == cols - 1){
+				std::cout << "\n";
+			}
 		}
 	}
 }
@@ -40,7 +43,7 @@ int main()
 {
 	size_t rows = 0, cols = 0;
 	std::cin >> rows >> cols;
-	if (!std::cin){
+	if (!std::cin || rows <= 0 || cols <= 0){
 		return 1;
 	}
 	std::cout << rows * cols << "\n";
