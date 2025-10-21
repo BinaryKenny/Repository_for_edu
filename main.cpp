@@ -61,3 +61,28 @@ int main()
 
 	std::cout << "\n";	
 }	
+
+//Задача из классной:
+int **convert(const int * t, int n, const size_t * lns, size_t rows){
+    
+    
+    
+    int **matrix = new int * [rows];
+    for (size_t i = 0; i < rows; ++i){
+        matrix[i] = new int [lns[i]];
+    }
+    size_t str = 0, col = 0;
+    for (size_t j = 0; j < n; ++j){
+       
+        if (col >= lns[str]){
+            str++;
+            col = 0;
+        }
+        matrix[str][col] = t[j];
+        
+        std::cout << matrix[str][col] << "\n";
+        col++;
+    }
+    
+    return matrix;
+}
